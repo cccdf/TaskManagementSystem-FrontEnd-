@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <h2>All Users</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">User Id</th>
+                <th scope="col">User Email</th>
+                <th scope="col">Mobile Number</th>
+                <th scope="col">User Name</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let user of users">
+            <th scope="row">
+                {{user.id}}
+            </th>
+            <td>{{user.email}}</td>
+            <td>{{user.mobileno}}</td>
+            <td> <a [routerLink]="['tasks/user',user.id]">{{user.fullname}}</a></td>
+        </tbody>
+    </table>
+    <!-- <div *ngFor="let user of users">
+        <p>{{user.id}}</p>
+        <p>{{user.email}}</p>
+        <p>{{user.mobileno}}</p>
+        <a [routerLink]="['tasks/user',user.id]">{{user.fullname}}</a>
+    </div> -->
+</div>
