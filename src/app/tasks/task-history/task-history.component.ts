@@ -22,6 +22,7 @@ export class TaskHistoryComponent implements OnInit {
       completed: new Date(),
       remarks: "",
   }
+  taskHistories: TaskHistory[]
   constructor(
     private route:ActivatedRoute,
     private taskhistoryService:TaskhistoryService,
@@ -34,16 +35,20 @@ export class TaskHistoryComponent implements OnInit {
     });
     this.taskService.getTaskByTaskId(this.taskId).subscribe(res=>{
       this.task=res;
+      this.taskHistory.userId=this.task.userId;
+      this.taskHistory.title=this.task.title;
+      this.taskHistory.dueDate=this.task.dueDate;
+      this.taskHistory.description=this.task.description;
+      this.taskHistory.remarks=this.task.remarks;
     })
-    this.taskHistory.userId=this.task.userId;
-    this.taskHistory.title=this.task.title;
-    this.taskHistory.dueDate=this.task.dueDate;
-    this.taskHistory.description=this.task.description;
-    this.taskHistory.remarks=this.task.remarks;
+
     // this.taskHistory.completed=Date.now().valueOf
     this.taskhistoryService.addTaskHistory(this.taskHistory).subscribe(res=>{
       console.log(res);
     });
+    this.taskhistoryService.getAllTaskHistories().subscribe(res=>{
+      this.taskHistories=res;
+    })
   }
 
 }

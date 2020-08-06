@@ -16,6 +16,9 @@ export class TaskhistoryService {
   addTaskHistory(taskHistory:TaskHistory):Observable<any>{
     return this.apiService.create('taskhistory/create',taskHistory)
   }
+  getAllTaskHistories(){
+    return this.apiService.getAll('taskhistory/TaskHistories');
+  }
   // getTaskHistoryByTaskId():Observable<TaskHistory[]>{
   //   return this.apiService.getAll()
   // }
