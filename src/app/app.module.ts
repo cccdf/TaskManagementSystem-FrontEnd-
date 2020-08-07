@@ -9,6 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { TaskListComponent } from './tasks/task-list/task-list.component';
 import { HeaderComponent } from './core/layout/header/header.component';
 import { TaskHistoryComponent } from './tasks/task-history/task-history.component';
+import { CreateTaskComponent } from './tasks/create-task/create-task.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -16,12 +19,16 @@ import { TaskHistoryComponent } from './tasks/task-history/task-history.componen
     HomeComponent,
     TaskListComponent,
     HeaderComponent,
-    TaskHistoryComponent
+    TaskHistoryComponent,
+    CreateTaskComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

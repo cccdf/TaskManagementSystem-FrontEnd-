@@ -19,7 +19,7 @@ export class TaskHistoryComponent implements OnInit {
       title: "",
       description: "",
       dueDate: new Date(),
-      completed: new Date(),
+      completed: 0,
       remarks: "",
   }
   taskHistories: TaskHistory[]
@@ -39,16 +39,19 @@ export class TaskHistoryComponent implements OnInit {
       this.taskHistory.title=this.task.title;
       this.taskHistory.dueDate=this.task.dueDate;
       this.taskHistory.description=this.task.description;
+      this.taskHistory.completed=Date.now();
       this.taskHistory.remarks=this.task.remarks;
+      this.taskhistoryService.addTaskHistory(this.taskHistory).subscribe(res=>{
+        console.log(res);
+      });
+      this.taskhistoryService.getAllTaskHistories().subscribe(res=>{
+        this.taskHistories=res;
+      })
     })
 
     // this.taskHistory.completed=Date.now().valueOf
-    this.taskhistoryService.addTaskHistory(this.taskHistory).subscribe(res=>{
-      console.log(res);
-    });
-    this.taskhistoryService.getAllTaskHistories().subscribe(res=>{
-      this.taskHistories=res;
-    })
+
+
   }
 
 }

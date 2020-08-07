@@ -19,7 +19,8 @@
       <td>{{ taskHistory.userId }}</td>
       <td>{{ taskHistory.title }}</td>
       <td>{{ taskHistory.description }}</td>
-      <td>{{ taskHistory.dueDate | date }}</td>
+      <td>{{ taskHistory.dueDate | date:'medium' }}</td>
+      <td>{{taskHistory.completed|date:'medium'}}</td>
       <td>{{ taskHistory.remarks }}</td>
     </tbody>
   </table>

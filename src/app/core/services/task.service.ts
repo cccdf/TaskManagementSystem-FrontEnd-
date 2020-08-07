@@ -20,4 +20,8 @@ export class TaskService {
   getTaskByTaskId(taskId:number):Observable<Task>{
     return this.apiService.getOne('task/',taskId);
   }
+
+  addTask(task:Task):Observable<Task>{
+    return this.apiService.create('task/create',task);
+  }
 }

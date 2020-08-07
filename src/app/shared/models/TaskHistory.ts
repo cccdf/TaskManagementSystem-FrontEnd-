@@ -4,6 +4,6 @@ export interface TaskHistory{
     title: string;
     description: string;
     dueDate: Date;
-    completed: Date;
+    completed: number;
     remarks: string;
 }
